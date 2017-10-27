@@ -1,18 +1,7 @@
 $(document).ready(function() {
-	// ================= AJAX CALLS ========================
-
-	$.get("https://api.giphy.com/v1/gifs/search?api_key=Km6OIYQrHThqmal2XQyxjDffS1spiIIj&q=football&limit=10&offset=0&rating=PG-13&lang=en"
-    ).done(function(response) {
-    	console.log(response);
-    	// CALL DISPLAYGIF(RESPONSE)
-    	console.log(response.data[0].images.fixed_height.url)
-    	console.log($("#proto-img"));
-    	$("#proto-img").attr("src", response.data[0].images.fixed_height.url);
-    });
-
 	// ================= VARIABLES =========================
 	
-	// CREATE ARRAY CALLED TOPICS, MAKE 10 ITEMS, SPORTS IS THEME
+	// ARRAY OF 10 TOPICS
 	var topic = [
 		"Football", 
 		"Soccer", 
@@ -44,29 +33,40 @@ $(document).ready(function() {
 	}; // END RENDER BUTTON
 
 	// DISPLAY 10 NON ANIMATED GIFS 
-	// FUNCTION DISPLAYGIF() 
-		
+	function displayGif() {		
 		// GRAB 10 STATIC NONANIMATED GIFS AND DISPLAY ON PAGE
 		// LOOP FOR 10 TIMES
+
 			// CREATE IMG TAG
-				// .CLEAR gif-location DIV
-					// DISPLAY IMG TAG IN gif-location
+				// IMAGE .ATTR VALUE = TOPIC[I]
+				// IMAGE .
+					// DISPLAY IMG TAG IN gif-locat ion
 			
 
 
 			// GRAB 10 NON ANIMATED GIFS
 			// WHEN USER CLICKS ON GIFY STILL IMAGE, ANIMATE GIF
 			// WHEN USER CLICKS ON GIFY STILL IMAGE, ANIMATE GIF
+	}; // END DISPLAY GIF
 
     // ----------------- CALL FUNCTIONS ON START -----------
+	
 	renderButtons();
 
 	// ================= ONCLICKS ==========================
 
     $($(".topicButton")).on("click", function(event) {
-    	console.log($(this).attr("value"));
-    	// CALL DISPLAYGIF
-    });
+    	console.log($(this).attr("value")); 
+    	// VALUE OF BUTTON PRESSED
+    	var buttonValue = $(this).attr("value");
+    	// AJAX CALL WITH BUTTON VALUE BEING SEARCHED
+	    $.get(
+			"https://api.giphy.com/v1/gifs/search?api_key=Km6OIYQrHThqmal2XQyxjDffS1spiIIj&q=" + buttonValue +"&limit=10&offset=0&rating=PG-13&lang=en"
+	    ).done(function(response) {
+	    	console.log(response);
+			// CALL DISPLAYGIF (RESPONSE)
+		}); // END AJAX CALL 
+    }); // END ON CLICK
 
 });
 
