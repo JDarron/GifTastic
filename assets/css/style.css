@@ -1,11 +1,28 @@
-img {
-	margin: 10px;
+* {
+	margin: 0 auto;
+}
+.gif-header {
+	color: #ffffff;
+	text-align: center;
+	font-family: sans-serif;
+	font-weight: 100;
+	background-color: #555555;
+	padding: 20px 40px;
 }
 
-button {
-    background-color: white;
-    color: black;
-    border: 2px solid #555555;
+form {
+	border-bottom: 1px solid #555555;
+	background-color: #BEBEBE;
+	padding-top: 10px;
+	padding-left: 5px;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+
+.button-submit {
+    background-color: #555555;
+    color: #eeeeee;
+    border: 1px solid #555555;
     padding: 10px 15px;
     text-align: center;
     text-decoration: none;
@@ -15,7 +32,27 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.button-submit:hover {
+    background-color: #eeeeee;
+    border: 1px solid #555555;
+    color: black;
+}
+
+
+.button-topic {
+    background-color: #eeeeee;
+    color: black;
+    border: 1px solid #555555;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 17px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.button-topic:hover {
     background-color: #555555;
     color: white;
 }
@@ -28,4 +65,89 @@ input {
 input[placeholder], [placeholder], *[placeholder] {
     color: #555555;
     font-size: 16px;
+}
+
+img {
+	margin: 10px;
+	border: 1px solid #555555;
+	cursor: pointer;
+}
+
+#img1 {
+	float: left;
+	text-align: center;
+	font-family: sans-serif;
+	font-weight: 500;
+	font-size: 15px;
+}
+
+#img2 {
+	float: left;
+	text-align: center;
+	font-family: sans-serif;
+	font-weight: 500;
+	font-size: 15px;
+}
+
+#img3 {
+	text-align: center;
+	font-family: sans-serif;
+	font-weight: 500;
+	font-size: 15px;
+}
+
+#img4 {
+	float: left;
+	text-align: center;
+	font-family: sans-serif;
+	font-weight: 500;
+	font-size: 15px;
+}
+
+#img5 {
+	float: left;
+	text-align: center;
+	font-family: sans-serif;
+	font-weight: 500;
+	font-size: 15px;
+}
+
+#img6 {
+	float: left;
+	text-align: center;
+	font-family: sans-serif;
+	font-weight: 500;
+	font-size: 15px;
+}
+
+#img7 {
+	float: left;
+	text-align: center;
+	font-family: sans-serif;
+	font-weight: 500;
+	font-size: 15px;
+}
+
+#img8 {
+	float: left;
+	text-align: center;
+	font-family: sans-serif;
+	font-weight: 500;
+	font-size: 15px;
+}
+
+#img9 {
+	float: left;
+	text-align: center;
+	font-family: sans-serif;
+	font-weight: 500;
+	font-size: 15px;
+}
+
+#img10 {
+	float: left;
+	text-align: center;
+	font-family: sans-serif;
+	font-weight: 500;
+	font-size: 15px;
 }

@@ -55,11 +55,23 @@ $(document).ready(function() {
             // IMAGE .ATTR reg-url = REGURL
             img.attr("data-animate", dataAnimate);
             // IMG STATE FOR DETERMING IF ITS ANIMATED OR STILL
-            img.attr("data-state", "still");            
+            img.attr("data-state", "still");
             // GIVE IMAGE A CLASS
-            img.attr("class", "gif-img");
+            img.attr("class", "gifImg");
+            // CREATE P ELEMENT
+            var p = $("<p>");
+            // ADD THE RATING TO THE P TAG 
+            p.text("Rating: " + apiObject.data[i].rating);
+            // CAREATE DIV TAG 
+            var div = $("<div>");
+            // GIVE DIV AN ID FOR STYLNG
+            div.attr("id", "img" + (i + 1));
+            // ADD THE IMG TO THE DIV TAG
+            div.append(img);
+            // ADD THE P TAG TO THE DIV TAG
+            div.append(p);
             // DISPLAY IMG TAG IN gif-location
-            $("#gif-location").prepend(img);
+            $("#gif-location").append(div);
         } // END IMG LOOP
     }; // END DISPLAY GIF
 
@@ -75,35 +87,22 @@ $(document).ready(function() {
         var buttonValue = $(this).attr("value");
         // AJAX CALL WITH BUTTON VALUE BEING SEARCHED
         $.get( // GIFY API URL 
-            "https://api.giphy.com/v1/gifs/search?api_key=Km6OIYQrHThqmal2XQyxjDffS1spiIIj&q=" + buttonValue + "&limit=10&offset=0&rating=PG-13&lang=en"
+            "https://api.giphy.com/v1/gifs/search?api_key=Km6OIYQrHThqmal2XQyxjDffS1spiIIj&q=" + buttonValue + "&limit=10&offset=0&rating=R&lang=en"
         ).done(function(response) {
-        	// SHOW THE API OBJECT IN CONSOLE
+            // SHOW THE API OBJECT IN CONSOLE
             console.log(response);
             // CALL DISPLAYGIF (OBJECT)
             displayGif(response, buttonValue);
         }); // END AJAX CALL 
     }); // END ON CLICK
 
-    $(".gif-img").on("click", function() {
-        console.log('We in ths b****');
-        // LOOKING AT THE STATE OF THE IMG
-        var state = $(this).attr("data-state");
-        // IF STATE IS ANIMATED OR STILL
-        if (state === "still") {
-            // THIS IMG SRC CHANGED TO ANIMATE
-            $(this).attr("src", $(this).attr("data-animate"));
-            // CHANGE STATE TO INICATE ANIMATE
-            $(this).attr("data-state", "animate");
-        } else { // ELSE CHANGE TO STILL
-            // THIS IMG SRC CHANGED TO STILL
-            $(this).attr("src", $(this).attr("data-still"));
-            // CHANGE STATE TO INICATE STILL
-            $(this).attr("data-state", "still");
-        }; // END IF STATEMENT
+    $("#button-submit").on("click", function(event) {
+        console.log($("#button-submit").val().trim());
     }); // END ON CLICK
+
 }); // END ON READY START FUNCTION
 
-	// ================= INSTRUCTIONS ======================
+// ================= INSTRUCTIONS ======================
 
 // When the user clicks on a button, the page should grab 10 static, non-animated gif images from the GIPHY API and place them on the page.
 // When the user clicks one of the still GIPHY images, the gif should animate. If the user clicks the gif again, it should stop playing.	

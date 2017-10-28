@@ -3,34 +3,32 @@
 
 <head>
     <title>GifTastic!</title>
-    <link 
-	    rel="stylesheet" 
-	    type="text/css" 
-	    href="assets/css/style.css"/>
-    <script 
-		src="https://code.jquery.com/jquery-3.2.1.js" 
-		integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" 
-		crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <!-- =================== HEADER =================== -->
+    <h1 class="gif-header">
+		Gif Mania!
+	</h1>
+    <!-- =================== /HEADER ================== -->
+    <!-- =================== BUTTON FORM ============== -->
     <form>
         <button class="button-submit" type="submit">
-        	Submit
+            Submit
         </button>
         <input type="text" placeholder="Choose a different Sport or Game">
-    </form>	
-	<div id="button-location">
-		
-	</div>
-	<div id="gif-location">
-
-	</div>
-
-	<img 
-	src="https://media0.giphy.com/media/FB7yASVBqPiFy/200.gif" 
-	alt="" 
-	id="proto-img">
+    </form>
+    <!-- =================== /BUTTON FORM ============= -->
+    <div id="button-location">
+    </div>
+    <!-- =================== GIF IMG ================== -->
+    <div id="gif-location">
+    </div>
+    <!-- =================== /GIF IMG ================= -->
+    <!-- =================== SCRIPTS ================== -->
     <script src="assets/javascript/logic.js"></script>
 </body>
+
 </html>
