@@ -19,6 +19,8 @@ $(document).ready(function() {
 
     // CREATE 10 BUTTONS FOR ARRAY TOPICS 
     function renderButtons() {
+        // EMPTY THE BUTTON LOCATION
+        $("#button-location").empty();
         // FOR(TOPICS.LENGTH)
         for (var i = 0; i < topic.length; i++) {
             // CREATE VAR BUTTON = BUTTON 
@@ -30,7 +32,7 @@ $(document).ready(function() {
             // BUTTON .TEXT = TOPIC[I]
             button.text(topic[i]);
             // #button-location .PREPEND BUTTON
-            $("#button-location").prepend(button);
+            $("#button-location").append(button);
         }; // END LOOP
     }; // END RENDER BUTTON
 
@@ -81,7 +83,8 @@ $(document).ready(function() {
 
     // ================= ONCLICKS ==========================
 
-    $(".button-topic").on("click", function(event) {
+    // CLICK THE TOPIC BUTTON TO GENERATE GIFS
+    $(document).on("click", ".button-topic", function(event) {
         console.log($(this).attr("value"));
         // VALUE OF BUTTON PRESSED
         var buttonValue = $(this).attr("value");
@@ -96,27 +99,34 @@ $(document).ready(function() {
         }); // END AJAX CALL 
     }); // END ON CLICK
 
-    $("#button-submit").on("click", function(event) {
-        console.log($("#button-submit").val().trim());
+    // SUBMIT BUTTON TO ADD THE BUTTON 
+    $("#submit").on("click", function(event) {
+        // KEEP THE PAGE FROM RELOADING 
+        event.preventDefault();
+        // GET THE NAME ADDED
+        var topicName = $("#topic-name").val();
+        // PUSH THE TOPIC TO ARRAY
+        topic.push(topicName);
+        // ADD THE TOPIC BUTTON
+        renderButtons();
     }); // END ON CLICK
 
+    // GIF ON CLICK TO CHANGE THE STATE
+    $(document).on("click", ".gifImg", function(e) {
+        // GET THE STATE OF THE IMG
+        var state = $(this).attr("data-state");
+        // IF IMG STILL CHANGE TO ANIMIMATED
+        if (state === "still") {
+            // MAKE THIS IMG SRC THE ANIMATED LINK
+            $(this).attr("src", $(this).attr("data-animate"));
+            // CHANGE THE STATE TO BE READY NEXT TIME
+            $(this).attr("data-state", "animate");
+        } else { // ELSE CHANGE TO STILL
+            // MAKE THIS IMG SRC THE STILL LINK
+            $(this).attr("src", $(this).attr("data-still"));
+            // CHANGE THE STATE TO BE READY NEXT TIME
+            $(this).attr("data-state", "still");
+        };
+    });
+
 }); // END ON READY START FUNCTION
-
-// ================= INSTRUCTIONS ======================
-
-// When the user clicks on a button, the page should grab 10 static, non-animated gif images from the GIPHY API and place them on the page.
-// When the user clicks one of the still GIPHY images, the gif should animate. If the user clicks the gif again, it should stop playing.	
-
-
-
-// Under every gif, display its rating (PG, G, so on).
-// This data is provided by the GIPHY API.
-
-// DISPLAY GIF RATING AT BOTTOM OF IMAGE
-
-// Only once you get images displaying with button presses should you move on to the next step.
-// Add a form to your page takes the value from a user input box and adds it into your topics array. Then make a function call that takes each topic in the array remakes the buttons on the page.
-
-// CREATE FORM 
-// TAKE FORM ENTRY VALUE AND ADD IT INTO THE TOPICS ARRAY
-// CALL A FUNCTION THAT TAKES EACH TOPIC IN ARRAY AND REMAKES THE BUTTONS ON THE PAGE

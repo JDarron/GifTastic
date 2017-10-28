@@ -1,6 +1,7 @@
 * {
 	margin: 0 auto;
 }
+
 .gif-header {
 	color: #ffffff;
 	text-align: center;
@@ -37,7 +38,6 @@ form {
     border: 1px solid #555555;
     color: black;
 }
-
 
 .button-topic {
     background-color: #eeeeee;
